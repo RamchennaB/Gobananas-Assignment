@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
 
-function App() {
+import React from 'react';
+import { ThemeProvider, CssBaseline, Container, Grid, Typography } from '@mui/material';
+import DataList from './DataList.js';
+import theme from './theme';
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Container maxWidth="md" style={{ marginTop: '50px' }}>
+        <Grid container spacing={3}>
+          <Grid item xs={12}>
+            <Typography variant="h3" component="h1" gutterBottom align="center">
+              USER COMMENTS  FROM JSON API
+            </Typography>
+          </Grid>
+          <Grid item xs={12}>
+            <DataList endpoint="comments" />
+          </Grid>
+        </Grid>
+      </Container>
+    </ThemeProvider>
   );
-}
+};
 
 export default App;
