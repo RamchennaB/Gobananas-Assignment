@@ -3,7 +3,7 @@ import { Table,TableBody, TableCell, TableContainer,TableHead, TableRow, Typogra
 import { fetchData } from './api';
 
 const DataList = ({ endpoint }) => {
-  //Use sate to store the details
+  //Use state to store the details
 
   const [data, setData] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
