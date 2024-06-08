@@ -3,8 +3,12 @@ import { Table,TableBody, TableCell, TableContainer,TableHead, TableRow, Typogra
 import { fetchData } from './api';
 
 const DataList = ({ endpoint }) => {
+  //Use sate to store the details
+
   const [data, setData] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+
+  // fetching data from Api
 
   useEffect(() => {
     const fetchDataFromAPI = async () => {
@@ -14,10 +18,11 @@ const DataList = ({ endpoint }) => {
     fetchDataFromAPI();
   }, [endpoint]);
 
+  // handling the changes in the search bar
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
   };
-
+  // filtering search results
   const filteredData = data.filter((item) =>
     item.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
